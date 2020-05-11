@@ -14,7 +14,7 @@ class Books extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks("Ready Player One");
+    this.loadBooks("Illiad");
   }
 
   loadBooks = (query) => {
