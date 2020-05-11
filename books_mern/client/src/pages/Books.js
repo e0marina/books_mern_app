@@ -9,12 +9,12 @@ import { BookList, BookListItem } from "../components/BookList";
 
 class Books extends Component {
   state = {
-    result: {},
+    result: [],
     bookSearch: "",
   };
 
   componentDidMount() {
-    this.loadBooks("Illiad");
+    this.loadBooks("Ready Player One");
   }
 
   loadBooks = (query) => {
@@ -36,7 +36,7 @@ class Books extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    this.getSearchedBook(this.state.bookSearch);
+    this.loadBooks(this.state.bookSearch);
   };
 
   render() {
@@ -74,14 +74,14 @@ class Books extends Component {
           </Row>
           <Row>
             <Col size="xs-12">
-              {!this.state.result.length ? (
+              {!this.state.result.items ? (
                 <h2 className="text-center">No Books to Display</h2>
               ) : (
                 <BookList>
-                  {this.state.result.map((book) => {
+                  {this.state.result.items.map((book) => {
                     return (
                       <BookListItem
-                        key={book.volumeInfo.title}
+                        key={book.id}
                         title={book.volumeInfo.title}
                         href={book.volumeInfo.infoLink}
                         authors={book.volumeInfo.authors}

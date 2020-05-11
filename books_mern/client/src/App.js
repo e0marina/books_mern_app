@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import Books from "./pages/Books";
 
 function App() {
   return (
     <>
       <Router>
-        <Books />
+        <div>
+          <Route exact path="/" component={Books} />
+        </div>
       </Router>
     </>
   );
@@ -15,8 +16,8 @@ function App() {
 
 export default App;
 
-{
-  /* <Router>
+// {
+/* <Router>
 <Nav />
 <Books />
 <Switch>
@@ -26,4 +27,4 @@ export default App;
   <Route exact path="/books:id" component={Detail} />
 </Switch>
 </Router> */
-}
+// }

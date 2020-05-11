@@ -21,7 +21,7 @@ export function BookListItem({ authors, description, image, href, title }) {
             <h6>Description: {description}</h6>
           </Col>
           <Col size="xs-4 sm-2">
-            <img src={image} />
+            <img alt="" src={image} />
           </Col>
           <Col size="xs-8 sm-9">
             <h5>{title}</h5>
