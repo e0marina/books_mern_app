@@ -40,6 +40,19 @@ class Books extends Component {
     this.loadBooks(this.state.bookSearch);
   };
 
+  handleSaveBook = (id) => {
+    const book = this.state.result.find((book) => book.id === id);
+
+    API.saveBook({
+      key: book.id,
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.smallThumbnail,
+      link: book.volumeInfo.infoLink,
+    }).then(() => this.loadBooks());
+  };
+
   render() {
     return (
       <div>
@@ -90,7 +103,9 @@ class Books extends Component {
                           description={book.volumeInfo.description}
                           image={book.volumeInfo.imageLinks.smallThumbnail}
                         />
-                        <SaveBtn></SaveBtn>
+                        <SaveBtn
+                          onClick={() => this.handleSaveBook(book.id)}
+                        ></SaveBtn>
                         <hr></hr>
                       </div>
                     );

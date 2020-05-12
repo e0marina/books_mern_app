@@ -10,4 +10,8 @@ export default {
   getSearchedBook: function (query) {
     return axios.get(BASEURL + query);
   },
+  //saves a book to the database
+  saveBook: function (bookData) {
+    return axios.post("/api/books", bookData);
+  },
 };
