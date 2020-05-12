@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Books from "./pages/Books";
+// import Saved from "./pages/Saved";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Router>
         <div>
           <Route exact path="/" component={Books} />
+          {/* <Route exact path="/saved" component={Saved} /> */}
         </div>
       </Router>
     </>
@@ -15,16 +17,3 @@ function App() {
 }
 
 export default App;
-
-// {
-/* <Router>
-<Nav />
-<Books />
-<Switch>
-  <Route exact path="/" component={Books} />
-  <Route exact path="/books" component={Books} />
-  <Route path="*" component={NoMatch} />
-  <Route exact path="/books:id" component={Detail} />
-</Switch>
-</Router> */
-// }

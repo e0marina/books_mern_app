@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import Nav from "../components/Nav";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import SaveBtn from "../components/SaveBtn";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { BookList, BookListItem } from "../components/BookList";
@@ -80,14 +81,18 @@ class Books extends Component {
                 <BookList>
                   {this.state.result.items.map((book) => {
                     return (
-                      <BookListItem
-                        key={book.id}
-                        title={book.volumeInfo.title}
-                        href={book.volumeInfo.infoLink}
-                        authors={book.volumeInfo.authors}
-                        description={book.volumeInfo.description}
-                        image={book.volumeInfo.imageLinks.smallThumbnail}
-                      />
+                      <div>
+                        <BookListItem
+                          key={book.id}
+                          title={book.volumeInfo.title}
+                          href={book.volumeInfo.infoLink}
+                          authors={book.volumeInfo.authors}
+                          description={book.volumeInfo.description}
+                          image={book.volumeInfo.imageLinks.smallThumbnail}
+                        />
+                        <SaveBtn></SaveBtn>
+                        <hr></hr>
+                      </div>
                     );
                   })}
                 </BookList>
