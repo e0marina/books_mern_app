@@ -1,6 +1,3 @@
-//comment to update yet again
-//and here we go
-
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Nav from "../components/Nav";
@@ -22,7 +19,8 @@ class Books extends Component {
   }
 
   loadBooks = (query) => {
-    API.getSearchedBook(query)
+    const q = query ? query : "";
+    API.getSearchedBook(q)
       .then((res) =>
         this.setState({
           result: res.data,
@@ -53,7 +51,7 @@ class Books extends Component {
       description: book.volumeInfo.description,
       image: book.volumeInfo.imageLinks.smallThumbnail,
       link: book.volumeInfo.infoLink,
-    }).then(() => this.loadBooks());
+    });
   };
 
   render() {
